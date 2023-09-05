@@ -1,9 +1,14 @@
 @import url("~bootstrap/css/bootstrap.min.css");
+@import url("~bootstrapIcons/bootstrap-icons.min.css");
 
 main {
     min-height: 100vh;
     display: flex;
     align-items: center;
+}
+
+main.main-variant {
+    min-height: 80vh;
 }
 
 .card-form-user {
@@ -15,4 +20,9 @@ main {
     padding: 1rem;
 
     border-radius: 6px;
+}
+
+nav.navbar {
+    background-color: #141e46 !important;
+    color: #f6f4eb;
 }

@@ -29,7 +29,7 @@ class UserController extends Controller
                 throw new Exception('Email ou senha invalidos');
             }
 
-            dd('LOGIN_SUCCESS');
+            return redirect()->route('contact-book.index');
         } catch (Exception $error) {
             return redirect()->back()->withErrors(['auth' => 'Email ou senha invalidos'])->withInput();
         }
@@ -64,7 +64,7 @@ class UserController extends Controller
 
             ContactBook::create(['user_id' => Auth::id()]);
 
-            dd('LOGIN_SUCCESS', 'USER_CREATED_SUCCESS');
+            return redirect()->route('contact-book.index');
         } catch (Exception $error) {
             return redirect()->back()->withErrors(['auth' => 'Ocorreu um erro interno'])->withInput();
         }

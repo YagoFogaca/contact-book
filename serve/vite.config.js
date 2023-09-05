@@ -15,6 +15,10 @@ export default defineConfig({
                 __dirname,
                 "node_modules/bootstrap/dist"
             ),
+            "~bootstrapIcons": path.resolve(
+                __dirname,
+                "node_modules/bootstrap-icons/font"
+            ),
         },
     },
 });
