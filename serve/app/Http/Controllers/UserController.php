@@ -70,9 +70,15 @@ class UserController extends Controller
         }
     }
 
-    public function show(string $id)
+    public function logout(Request $request)
     {
-        //
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('user.index');
     }
 
     public function edit(string $id)

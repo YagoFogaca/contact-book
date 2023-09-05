@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(UserController::class)->group(function () {
     Route::get('/', 'index')->name('user.index');
     Route::get('/user/create', 'create')->name('user.create');
+    Route::get('/logout', 'logout')->middleware('auth')->name('user.logout');
     Route::post('/auth', 'auth')->name('user.auth');
     Route::post('/user', 'store')->name('user.store');
 });
