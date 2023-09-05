@@ -1,31 +1,35 @@
 @extends('layout.auth.index')
 
 @section('content')
-    <section>
-        <form action={{ route('user.store') }} method="POST">
+    <section class="card-form-user">
+        <form action={{ route('user.auth') }} method="POST">
             @csrf
 
-            <div>
+            <div class="mb-3">
                 <label for="name">Nome</label>
-                <input type="text" name="name" id="name" required value="{{ old('name') }}">
+                <input class="form-control" type="text" name="name" id="name" placeholder="Seu nome" required
+                    value="{{ old('name') }}">
             </div>
 
-            <div>
+            <div class="mb-3">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" required value="{{ old('email') }}">
+                <input class="form-control" type="email" name="email" id="email" placeholder="Melhor Email"
+                    required>
             </div>
 
-            <div>
+            <div class="mb-3">
                 <label for="password">Senha</label>
-                <input type="password" name="password" id="password" required value="{{ old('password') }}">
+                <input class="form-control" type="password" name="password" id="password" placeholder="Bem dificil"
+                    required>
             </div>
 
-            <div>
-                <a href="{{ route('user.index') }}">Fazer Login</a>
+            <div class="mb-3">
+                <p>Já é velho por aqui? <a href="{{ route('user.index') }}">Login</a> </p>
             </div>
 
-            <div>
-                <button type="submit">Criar conta</button>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success">Criar</button>
+                <button type="reset" class="btn btn-danger">Limpar</button>
             </div>
 
         </form>
