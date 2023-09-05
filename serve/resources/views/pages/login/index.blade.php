@@ -5,6 +5,10 @@
         <form action={{ route('user.auth') }} method="POST">
             @csrf
 
+            @error('auth')
+                <p class="invalid-feedback" style="display: block; text-align: center">{{ $message }}</p>
+            @enderror
+
             <div class="mb-3">
                 <label for="email">Email</label>
                 <input class="form-control" type="email" name="email" id="email" required>

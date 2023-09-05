@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactBook;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Exception;
@@ -27,36 +28,43 @@ class UserController extends Controller
             if (!Auth::attempt($credentials, $request->input('remember'))) {
                 throw new Exception('Email ou senha invalidos');
             }
-            dd('Login successful');
+
+            dd('LOGIN_SUCCESS');
         } catch (Exception $error) {
-            dd($error);
             return redirect()->back()->withErrors(['auth' => 'Email ou senha invalidos'])->withInput();
         }
     }
 
     public function create()
     {
-        //
         return view('pages.create-user.index');
     }
 
     public function store(Request $request)
     {
-        //
         try {
             $user = [
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
                 'password' => Hash::make($request->input('password'))
             ];
+
+            $credentials = [
+                'email' => $request->input('email'),
+                'password' => $request->input('password')
+            ];
+
             $userCreated = User::create($user);
 
             if (!$userCreated) {
                 return redirect()->back()->withErrors(['create' => 'Informações invalidas'])->withInput();
             }
-            // criar uma agenda para o usuario
 
-            dd(User::all()->toArray());
+            Auth::attempt($credentials);
+
+            ContactBook::create(['user_id' => Auth::id()]);
+
+            dd('LOGIN_SUCCESS', 'USER_CREATED_SUCCESS');
         } catch (Exception $error) {
             return redirect()->back()->withErrors(['auth' => 'Ocorreu um erro interno'])->withInput();
         }

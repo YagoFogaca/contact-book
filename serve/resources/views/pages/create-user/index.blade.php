@@ -2,8 +2,12 @@
 
 @section('content')
     <section class="card-form-user">
-        <form action={{ route('user.auth') }} method="POST">
+        <form action={{ route('user.store') }} method="POST">
             @csrf
+
+            @error('create')
+                <p class="invalid-feedback" style="display: block; text-align: center">{{ $message }}</p>
+            @enderror
 
             <div class="mb-3">
                 <label for="name">Nome</label>
