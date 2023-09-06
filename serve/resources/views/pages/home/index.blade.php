@@ -8,5 +8,15 @@
             <button class="btn btn-outline-primary">Criar Contato</button>
         </div>
 
+        <div class="container-contacts">
+            @if (count($contacts) <= 0)
+                <h5>Agenda Vazia</h5>
+            @else
+                @foreach ($contacts as $contacts)
+                    <p>SEI LA</p>
+                @endforeach
+            @endif
+        </div>
+
     </section>
 @endsection
