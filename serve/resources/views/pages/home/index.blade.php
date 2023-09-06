@@ -9,16 +9,17 @@
         </div>
 
         <div class="container-contacts">
-            <table>
-                <tr>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Telefone</th>
-                    <th>Editar</th>
-                </tr>
-                @if (count($contacts) <= 0)
-                    <h5>Agenda Vazia</h5>
-                @else
+
+            @if (count($contacts) <= 0)
+                <h5>Agenda Vazia</h5>
+            @else
+                <table>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Editar</th>
+                    </tr>
                     @foreach ($contacts as $contact)
                         <tr>
                             <td>{{ $contact['name'] }}</td>
@@ -38,7 +39,7 @@
                             </td>
                         </tr>
                     @endforeach
-                @endif
+            @endif
             </table>
         </div>
 
