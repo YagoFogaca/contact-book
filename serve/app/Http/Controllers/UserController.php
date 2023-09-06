@@ -66,7 +66,7 @@ class UserController extends Controller
 
             return redirect()->route('contact-book.index');
         } catch (Exception $error) {
-            return redirect()->back()->withErrors(['auth' => 'Ocorreu um erro interno'])->withInput();
+            return redirect()->back()->withErrors(['create' => 'Ocorreu um erro interno'])->withInput();
         }
     }
 
