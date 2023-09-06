@@ -5,7 +5,7 @@
 
         <div class="container-contact--infos">
             <h3>Agenda</h3>
-            <button class="btn btn-outline-primary">Criar Contato</button>
+            <a class="btn btn-outline-primary" href="{{ route('contact-book.create') }}">Criar Contato</a>
         </div>
 
         <div class="container-contacts">
