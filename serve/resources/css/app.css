@@ -49,6 +49,7 @@ div.container-contacts {
     margin-top: 2rem;
     border-top: 1px solid #ddd;
     padding-top: 10px;
+    overflow-x: auto;
 }
 
 table {
@@ -66,4 +67,9 @@ th {
 
 tr:nth-child(even) {
     background-color: #e9e7e7;
+}
+
+.btn.show,
+.btn:first-child:active {
+    border-color: transparent;
 }

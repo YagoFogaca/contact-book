@@ -22,14 +22,14 @@
                     </tr>
                     @foreach ($contacts as $contact)
                         <tr>
-                            <td>{{ $contact['name'] }}</td>
+                            <td class="contact-name">{{ $contact['name'] }}</td>
                             <td>{{ $contact['email'] ?? 'Sem Email' }}</td>
                             <td>{{ $contact['phone'] ?? 'Sem telefone' }}</td>
                             <td>
                                 <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-outline-primary dropdown-toggle"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-gear"></i>
+                                    <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{-- <i class="bi bi-gear"></i> --}}
+                                        <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#">Editar</a></li>
