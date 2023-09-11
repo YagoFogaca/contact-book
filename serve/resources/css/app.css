@@ -30,6 +30,10 @@ nav.navbar {
     color: #f6f4eb;
 }
 
+div.container-fluid {
+    flex-wrap: nowrap !important;
+}
+
 section.container-contact {
     width: 90%;
     max-width: 1236px;
