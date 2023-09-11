@@ -11,6 +11,7 @@ main.main-variant {
     min-height: 80vh;
     align-items: flex-start;
     margin-top: 2rem;
+    flex-direction: column;
 }
 
 .card-form-user {
@@ -72,4 +73,9 @@ tr:nth-child(even) {
 .btn.show,
 .btn:first-child:active {
     border-color: transparent;
+}
+
+.alert {
+    margin: 1rem auto;
+    width: 90%;
 }

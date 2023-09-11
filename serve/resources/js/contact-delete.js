@@ -1,5 +1,4 @@
 import { dataFormat } from "./data-format";
-// import "";
 
 $(document).ready(function () {
     $(".btn-delete-contact").each(function (index, element) {
@@ -30,11 +29,11 @@ $(document).ready(function () {
                     $(".hour-deleted").text(dataFormat());
                     $(".info-deleted").text("Nome: " + response.contact.name);
                     toastBootstrap.show();
+                    return true;
                 },
                 error: function (response) {
-                    console.log(response);
-                    // Ativar o alert para error
-                    // Fazer toast de error
+                    $("#alert-error").addClass("show");
+                    return true;
                 },
             });
         });

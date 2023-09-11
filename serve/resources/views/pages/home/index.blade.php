@@ -61,6 +61,9 @@
         </div>
     </div>
 
-
+    <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-error">
+        <p>Contato não foi excluido.</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
 @endsection
