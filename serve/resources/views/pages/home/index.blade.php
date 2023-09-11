@@ -33,7 +33,8 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item" href="#">Editar</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('contact.edit', ['contact' => $contact['id']]) }}">Editar</a>
                                         </li>
                                         <li>
                                             <button type="button" class="dropdown-item btn-delete-contact">Deletar</button>

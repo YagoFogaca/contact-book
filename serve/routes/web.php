@@ -25,7 +25,13 @@ Route::controller(UserController::class)->group(function () {
 
 Route::controller(ContactBookController::class)->group(function () {
     Route::get('/home', 'index')->middleware('auth')->name('contact-book.index');
+    // Tirar -book
     Route::get('/contact/create', 'create')->middleware('auth')->name('contact-book.create');
+    // Tirar -book
+    Route::get('/contact/{contact}/edit', 'edit')->middleware('auth')->name('contact.edit');
+    Route::patch('/contact/{id}', 'update')->middleware('auth')->name('contact.update');
+    // Tirar -book
     Route::post('/contact', 'store')->middleware('auth')->name('contact-book.store');
+    // Tirar -book
     Route::delete('/contact/{id}', 'destroy')->middleware('auth')->name('contact-book.destroy');
 });

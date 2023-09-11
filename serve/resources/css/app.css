@@ -79,3 +79,7 @@ tr:nth-child(even) {
     margin: 1rem auto;
     width: 90%;
 }
+
+.btn-spinner {
+    display: none;
+}

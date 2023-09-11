@@ -64,4 +64,37 @@ class ContactBookController extends Controller
             return response()->json(['message' => 'Contato não foi removido'], 400);
         }
     }
+
+    public function edit(Contacts $contact)
+    {
+        return view('pages.contact-edit.index', ['contact' => $contact]);
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'name' => 'nullable|required|min:3',
+            'email' => 'nullable|email',
+            'phone' => 'nullable'
+        ]);
+
+        try {
+            $contact = Contacts::find($id);
+            $contactUpdate = [
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'phone' => $request->input('phone')
+            ];
+
+            $contactUpdated = $contact->update($contactUpdate);
+            if (!$contactUpdated) {
+                throw new Exception("Ocorreu um erro interno");
+            }
+
+            return response()->json(['message' => 'Contato atualizado com sucesso', 'contact' => $contact->toArray()], 200);
+        } catch (Exception $error) {
+            return response()->json(['message' => 'Contato não foi atualizado'], 400);
+        }
+        // return view('pages.contact-edit.index', ['contact' => $contact]);
+    }
 }
