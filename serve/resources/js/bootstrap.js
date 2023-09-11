@@ -6,9 +6,13 @@
 
 import axios from "axios";
 import "bootstrap";
+import $ from "jquery";
 
+import * as bootstrap from "bootstrap";
+window.bootstrap = bootstrap;
+
+window.$ = $;
 window.axios = axios;
-
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 /**
