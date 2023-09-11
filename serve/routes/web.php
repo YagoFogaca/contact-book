@@ -27,4 +27,5 @@ Route::controller(ContactBookController::class)->group(function () {
     Route::get('/home', 'index')->middleware('auth')->name('contact-book.index');
     Route::get('/contact/create', 'create')->middleware('auth')->name('contact-book.create');
     Route::post('/contact', 'store')->middleware('auth')->name('contact-book.store');
+    Route::delete('/contact/{id}', 'destroy')->middleware('auth')->name('contact-book.destroy');
 });

@@ -47,8 +47,21 @@ class ContactBookController extends Controller
 
             return redirect()->route('contact-book.index')->with('success', 'Contato adicionado com sucesso');
         } catch (Exception $error) {
-            dd($error->getMessage());
-            return redirect()->back()->with('success', 'Contato adicionado com sucesso');
+            return redirect()->back()->withErrors(['error' => 'Contato não foi adicionado']);
+        }
+    }
+
+    public function destroy(string $id)
+    {
+        try {
+            $contact = Contacts::find($id);
+            $contactDeleted = $contact->delete();
+            if (!$contactDeleted) {
+                throw new Exception("Ocorreu um erro interno");
+            }
+            return response()->json(['message' => 'Contato removido com sucesso', 'contact' => $contact->toArray()], 200);
+        } catch (Exception $error) {
+            return response()->json(['message' => 'Contato não foi removido'], 400);
         }
     }
 }

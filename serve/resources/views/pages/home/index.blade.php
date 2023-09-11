@@ -21,19 +21,23 @@
                         <th>Editar</th>
                     </tr>
                     @foreach ($contacts as $contact)
-                        <tr>
+                        <tr class="contact-line">
                             <td class="contact-name">{{ $contact['name'] }}</td>
                             <td>{{ $contact['email'] ?? 'Sem Email' }}</td>
                             <td>{{ $contact['phone'] ?? 'Sem telefone' }}</td>
+                            <input type="hidden" name="id-contact" value="{{ $contact['id'] }}">
                             <td>
                                 <div class="btn-group" role="group">
                                     <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {{-- <i class="bi bi-gear"></i> --}}
                                         <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Editar</a></li>
-                                        <li><a class="dropdown-item" href="#">Deletar</a></li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Editar</a>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="dropdown-item btn-delete-contact">Deletar</button>
+                                        </li>
                                     </ul>
                                 </div>
                             </td>
@@ -42,6 +46,21 @@
             @endif
             </table>
         </div>
-
     </section>
+
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Contato deletado com sucesso</strong>
+                <small id="hour-deleted" class="hour-deleted"></small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body info-deleted" id="info-deleted">
+            </div>
+        </div>
+    </div>
+
+
+
 @endsection
